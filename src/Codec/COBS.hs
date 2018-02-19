@@ -30,7 +30,6 @@ wrap getMaxLen shim src = unsafePerformIO $ do
         with max_len $ \dst_len -> do
             status <- shim (castPtr dst) dst_len (castPtr src) (fromIntegral src_len)
             when (status /= 0) $ do
-                print (dst, dst_len, src, src_len)
                 throwIO (CobsException status)
             
             len <- peek dst_len
