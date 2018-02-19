@@ -1,0 +1,26 @@
+name:                   cobs
+version:                0.0.0.1
+stability:              experimental
+
+cabal-version:          >= 1.2
+build-type:             Simple
+
+author:                 James Cook <mokus@deepbondi.net>
+maintainer:             James Cook <mokus@deepbondi.net>
+license:                PublicDomain
+homepage:               /dev/null
+
+category:               Unclassified
+synopsis:               Constant Overhead Byte-Stuffing
+description:            Constant Overhead Byte-Stuffing
+
+Library
+  hs-source-dirs:       src
+  ghc-options:          -fwarn-unused-imports
+  include-dirs:         ext/cobs-c
+  c-sources:            cbits/shims.c
+                        ext/cobs-c/cobs.c
+                        ext/cobs-c/cobsr.c
+  exposed-modules:      Codec.COBS
+  build-depends:        base >= 3,
+                        bytestring
